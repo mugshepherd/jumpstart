@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "1.3.0",
+    "title": "Node Starter",
+    "description": "Node Starter API",
+    "contact": {
+      "name": "Julian Ostmo",
+      "email": "julian.ostmo@ibm.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9000/",
+      "description": "Local server"
+    },
+    {
+      "url": "https://remote_api_url",
+      "description": "Remote API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Operations"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": ["Operations"],
+        "description": "POST data to API",
+        "operationId": "postRequest",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "POST request successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PostResponse": {
+        "type": "boolean",
+        "description": "POST response"
+      }
+    }
+  }
+}

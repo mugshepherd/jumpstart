@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-starter
+  labels:
+    app: node-starter
+spec:
+  ports:
+  - port: 9000
+    targetPort: 9000
+    nodePort: 31514
+  type: NodePort
+  selector:
+    app: node-starter

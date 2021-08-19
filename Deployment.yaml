@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-starter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-starter
+  template:
+    metadata:
+      labels:
+        app: node-starter
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - node-starter
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - name: node-starter
+        image: us.icr.io/xp-farm/node-starter:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9000
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 9000
+          initialDelaySeconds: 30
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 9000
+          initialDelaySeconds: 30
+          periodSeconds: 5
