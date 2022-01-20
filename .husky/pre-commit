@@ -1,5 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no-install eslint --cache --fix
-npx husky add .husky/pre-commit "npx --no-install eslint --cache --fix"
+npx lint-staged
