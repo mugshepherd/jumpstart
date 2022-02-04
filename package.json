@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "snyk test && npm run test:unit",
+    "test": "snyk test --dev && npm run test:unit",
     "test:unit": "jest",
     "test:unit:watch": "npm run test:unit -- --watch",
     "lint": "eslint --cache --fix",
