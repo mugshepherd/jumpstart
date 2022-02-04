@@ -5,9 +5,9 @@ install:
 - npm ci
 jobs:
   include:
-  - stage: travis test
+  - stage: snyk dev tests and unit tests
     scripts:
-    - echo 'test'
+    - npm run test
 env:
   global:
   - secure: vWiH7itHPqwpGLIvLlmz8GBRMaAoVtxcNemff7nt3ylQhWwbfX6TyixyrJ3yc6LfyzcUkV+/8ukov3hu3TychTKVALw6r9m0RR8WlC51R6J6+rylK/yTw1ya9VoDd0Vm+7l6w23nFZz4A5814P9JxbkKoC7MMcQL3h/mSqZlD1emhJZ6jkWE+GxfJkHTD+Wa5fn6XkqkljvBCwn23GaI9qZczlD1DHgyVlRZKGXSMN6V+qzUc038xbNLqdyDs7hgHUemle4yeL4WsWWXDpCUtofcqmoPvbR4OjmghvUuv5I+XqNdfjY3WCgYvXbGwziCoa/5YJK6B7u0gnh+UaBwA6VuOdcKmkXztZlh0osSXVIzkp5bWqMPoabFYsj1KtQB3U7G/YH807DVXg+VOvj8QxHZOXPN3GZVC7It2bxPVvWkPOdXXYkL8tECKDeI6rqjXemF8aj4wDfruvhkSbrxFyUypncZg4vkPGT/9Tp38a5DMEKGl2WFKRken/QBu+AFLCG9lJL7cneRQO14/5eWyfMWJo0bHLpWjlZ0daAAkzbjsykOZg9dOTxmlX0lAoCENWuD+OQnee9kmVyvGYTz/6nYgWAIrU6R51qNjdehWFAtCv3bw5tLKexIfif5RaCYwlpRflRyOElpZ0Q8/AxWcJ4NBXgTypp6NzgILcIAOns=
