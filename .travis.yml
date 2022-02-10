@@ -3,11 +3,20 @@ node_js:
 - 16.13.2
 install:
 - npm ci
+addons:
+  sonarcloud:
+    organization: "xpfarmrepositories-tobyschaeffer"
+    token:
+      secure: quIG2Cj1RQUL214ahmVUA5RDDlx24ZEmk+5q5fTbKa2TwMbUTurDue2+q5gQeaIcsipSRIU0G8BdbnRolX7yASv8pXEHxCiTu+9gSnb3zm6Yhd6zLs7xswYJR3Fo8p66mVLMeNo4HregBRd9P8kK+GSWps+867ih7TBlGFjTPYkn3gFniMvzlpuDdVg2+Kt+WweNDnkqzDv8wreQGro41yb2NHNUBtCiJEHho6NsYnIhF6KL0qOHxmCNs6ZOBGpMm7OSDwMW7wqyVQ5AO0uUPltv2RlullxNeAV2kq4o9298vUOHxIptOeaIPVFc5xc3R2pWOInN6upYip7JoOLVGv2UFZGDR8ItBRmZBRcVPXUxfVc/vnQFKk1xLiOVbwZtLPVZjSS3naWDkF6QcguLvpLnwatH5tt2qBudHYqZSvQwHPctTVQ0l9Y4IAyGEAvQ9VvBd7Dz4NBZIvwdNtxKydDtPiayGQuhZryq+p3H3PEVZI18skuez5t1xBAKhkSjqbZGw+0GOabMeI+Kjn4EkwqCwZQTMA+gcvc5gZgWEWBIYwf46gRfnIXdU2FPEWbVjViAFdqrLlHwSAURbFPfAJtGoK2U6qtZ+hyO7bIjeSagKesHq/uXSnubbwNBa6jWioa5Y9ZF9kR2vjj3WQdtScLz6P03IyIlae9MLgQ4Eus=
 jobs:
   include:
   - stage: snyk dev tests and unit tests
     scripts:
     - npm run test
+  - stage: run SonarCloud
+    script: 
+    - sonar-scanner
+
 env:
   global:
   - secure: vWiH7itHPqwpGLIvLlmz8GBRMaAoVtxcNemff7nt3ylQhWwbfX6TyixyrJ3yc6LfyzcUkV+/8ukov3hu3TychTKVALw6r9m0RR8WlC51R6J6+rylK/yTw1ya9VoDd0Vm+7l6w23nFZz4A5814P9JxbkKoC7MMcQL3h/mSqZlD1emhJZ6jkWE+GxfJkHTD+Wa5fn6XkqkljvBCwn23GaI9qZczlD1DHgyVlRZKGXSMN6V+qzUc038xbNLqdyDs7hgHUemle4yeL4WsWWXDpCUtofcqmoPvbR4OjmghvUuv5I+XqNdfjY3WCgYvXbGwziCoa/5YJK6B7u0gnh+UaBwA6VuOdcKmkXztZlh0osSXVIzkp5bWqMPoabFYsj1KtQB3U7G/YH807DVXg+VOvj8QxHZOXPN3GZVC7It2bxPVvWkPOdXXYkL8tECKDeI6rqjXemF8aj4wDfruvhkSbrxFyUypncZg4vkPGT/9Tp38a5DMEKGl2WFKRken/QBu+AFLCG9lJL7cneRQO14/5eWyfMWJo0bHLpWjlZ0daAAkzbjsykOZg9dOTxmlX0lAoCENWuD+OQnee9kmVyvGYTz/6nYgWAIrU6R51qNjdehWFAtCv3bw5tLKexIfif5RaCYwlpRflRyOElpZ0Q8/AxWcJ4NBXgTypp6NzgILcIAOns=
