@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "detect-secrets": "cross-env-shell docker run --rm -v ${INIT_CWD}:/code ibmcom/detect-secrets:0.13.1.ibm.47.dss --baseline .secrets.baseline",
+    "detect-secrets": "cross-env-shell docker run --rm -v ${INIT_CWD}:/code ibmcom/detect-secrets-hook:0.13.1.ibm.47.dss --baseline .secrets.baseline",
     "detect-secrets:update-baseline": "cross-env-shell docker run --rm -v ${INIT_CWD}:/code ibmcom/detect-secrets:0.13.1.ibm.47.dss scan --update .secrets.baseline",
     "test": "snyk test --dev && npm run test:unit",
     "test:unit": "jest",
