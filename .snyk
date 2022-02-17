@@ -1,4 +1,9 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.22.1
-ignore: {}
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-UNSETVALUE-2400660:
+    - jest > @jest/core > @jest/reporters > @jest/transform > jest-haste-map > sane > anymatch > micromatch > braces > snapdragon > base > cache-base > unset-value:
+        reason: no fix available
+        expires: '2022-03-19T21:04:33.748Z'
 patch: {}
